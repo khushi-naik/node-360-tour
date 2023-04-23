@@ -1,0 +1,617 @@
+﻿<krpano version="1.20.11" title="Virtual Tour">
+
+	<include url="skin/vtourskin.xml" />
+	<include url="plugins/conferencing_plugin/conferencing_plugin.xml" />
+
+	<plugin name="conferencing_plugin" url="plugins/conferencing_plugin/conferencing_plugin.js" keep="true" devices="html5" include_jquery="true"
+		plugin_path="%FIRSTXML%/plugins/conferencing_plugin/"
+		onInitialized="oninitialized();"
+		onSyncViewEnter="onsyncviewenter();"
+		onSyncViewExit="onsyncviewexit();"
+		align="top"
+		align.mobile="left"
+		sidebar_on_left="false"
+		
+		agora_app_id=""
+
+		TURN_server=""
+		TURN_username=""
+		TURN_password=""
+		Camera_Frame_Rate=""
+		onDisonnect="trace(onDisonnect);"
+		onConnect="trace(onConnect);"
+		
+		password=""
+		contextmenu_caption="Setup Conference"
+		
+		lang_onSyncViewWarning="The host is directing your view."
+		lang_onSyncButton="Stop the View Syncing"
+		lang_error="Error"
+		lang_admin_leave_conference="Host has left the conference"
+		lang_leave="has left"
+		lang_guest_leave_conference="Guest has left conference"
+		lang_low_speed_internet="2G is not supported. Please use a better internet service."
+		lang_User_Scene="User Scene"
+		lang_The_user_is_not_in_this_scene="The user is not in this scene"
+		lang_HANG_UP="HANG UP"
+		lang_HANG_UP_description="You will exit this live guided session and stop communication with the host (and other users if there were any). You will be able to continue using and navigating the tour independently."
+		lang_POINT_OF_FOCUS="POINT OF FOCUS"
+		lang_POINT_OF_FOCUS_description_old="This feature can be used to direct the user towards a particular area of the 360° scene"
+		lang_POINT_OF_FOCUS_description="Set a point of interest or focus for users to move towards.  An arrow will display on the users screens directing them to the chosen point."
+		lang_SYNCHRONISED_VIEW="SYNCHRONISED VIEW"
+		lang_SYNCHRONISED_VIEW_description="This feature can be used to ensure all users are experiencing the same view"
+		lang_MONITOR_VIEW="MONITOR VIEW"
+		lang_MONITOR_VIEW_description="This feature can be used to track where users are currently looking within the 360° scene"
+		lang_SHOW_VIDEO_WINDOW="SHOW VIDEO WINDOW"
+		lang_HIDE_VIDEO_WINDOW="HIDE VIDEO WINDOW"
+		lang_Hide_SHOW_VIDEO_WINDOW="Hide/Show window"
+		lang_UNMUTE_MICROPHONE="UNMUTE MICROPHONE"
+		lang_MUTE_MICROPHONE="MUTE MICROPHONE"
+		lang_PUSH_TO_TALK="PUSH TO TALK"
+		lang_SHARE_THE_CONFERENCE_LINK="SHARE THE CONFERENCE LINK"
+		lang_SHARE_THE_CONFERENCE_LINK_description_old="To get visitors to join your conference, share the this link with them."
+		lang_SHARE_THE_CONFERENCE_LINK_description="Generate a url to share and invite users to join your conference."
+		lang_Your_Name="Your Name"
+		lang_Please_enter_your_name="Please enter your name"
+		lang_Enter_Your_Name_to_Join_the_Conference="Enter Your Name to Join the Conference"
+		lang_Enter_Your_Name_and_Choose_Participation_Method="Enter Your Name and Choose Participation Method"
+		lang_Help="Help"
+		lang_GROUP_MODE="GROUP MODE"
+		lang_GROUP_MODE_description_old="All guest mics are on. Everyone can talk and request control over the tour. Perfect for one-on-one sessions or calls with a small group of people."
+		lang_GROUP_MODE_description="In this mode all users can talk and request control over the tour.  Ideal for small groups."
+		lang_PRESENTER_MODE="PRESENTER MODE"
+		lang_PRESENTER_MODE_description_old="All guest mics are off and everyone follows you through the tour. This mode is ideal for presentations and classes with a medium group of guests/students."
+		lang_PRESENTER_MODE_description="In this mode the presenter retains control over the tour for the entire session.  All user mics are off by default with the option to use a “push to talk” feature for questions."
+		lang_CANCEL="CANCEL"
+		lang_Join="Join"
+		lang_camera_permission_description="You need to allow this website to have access to your microphone and camera."
+		lang_https_description="Please make sure the website 'https' is active."
+		lang_Conference_has_no_active_member="Conference has no active member"
+		lang_expired_conference_link="This conference link has expired.&lt;br/&gt;Please ask your conference host to provide a new one of you can generate one using the share icon."
+		lang_password_description="Please enter the conference password"
+		lang_wrong_password="Oops, wrong password!"
+		lang_reload_if_not_connect="We could not connect to the host, so we reload the page to solve the problem."		
+		lang_mouse_annotation_mode_old="MOUSE POINTER SHARING MODE"
+		lang_mouse_annotation_mode="Highlight / Pointer mode"
+		lang_mouse_annotation_mode_description_old="Guest can see the host mouse position."
+		lang_mouse_annotation_mode_description="Use a marker/pointer to highlight features or areas to other users."
+		lang_screensharing_mode="SCREEN SHARING MODE"
+		lang_screensharing_mode_description="Guests can see the shots screen (across all apps and windows)"
+	/>
+	<action name="oninitialized" >
+		
+	</action>
+	<action name="onsyncviewenter" >
+		trace(onsyncviewenter);
+	</action>
+	<action name="onsyncviewexit" >
+		trace(onsyncviewexit);
+	</action>	
+	
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="false"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="false"
+	               followmousecontrol="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext=""
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+  	<plugin name="pp_blur" keep="true"
+		url="%VIEWER%/plugins/pp_blur.js"
+		enabled="true"
+		range="0.0"
+		linearrgb="false"
+		order="1"
+		phase="2"
+		/>
+
+	
+
+	<action name="popup" scope="private:POPUP" args="type, content, width, height, scrollbars"><![CDATA[
+		if(popup, break(); );
+		
+		addlayer('popup_bg', popup_bg);
+		set(popup_bg,
+			type=container,
+			align=lefttop, width=100%, height=100%,
+			zorder=99,
+			handcursor=false,
+			bgcapture=true,
+			capture=false,
+			//bgcolor=0x123456, onloaded='tween(bgalpha,0.3,1.0);',	// optional: colorize the background
+			ondown='popup_close()'
+		);
+			
+		
+		addlayer('popup', popup);
+		set(popup,
+			type=container,
+			parent='popup_bg',
+			width=calc(min(width,global.stagewidth*0.9)),
+			height=calc(min(height,global.stageheight*0.8)),
+			align=center,
+			bgborder='1 0x555555 1',
+			bgcolor=0x555555,
+			bgalpha=0.7,
+			bgshadow='0 10 20 0x000000 0.5',
+			bgcapture=true,
+			maskchildren=false,
+			capture=true,
+			handcursor=false,
+			alpha=0
+		);
+		
+		/*
+		// optional: add a close button
+		addlayer('popup_close_x', closex);
+		set(closex,
+			url='%CURRENTXML%/closex.png',
+			parent='popup',
+			align=righttop,
+			edge=center,
+			scale=0.5,
+			zorder=99,
+			alpha=0.25,
+			onover='tween(alpha,1)',
+			onout='tween(alpha,0.25)',
+			ondown='tween(alpha,1)',
+			onup='tween(alpha,0.25)',
+			onclick='popup_close()'
+		);
+		*/
+
+		if(type == 'html',
+			set(popup.type, html);
+			copy(popup.html, content);
+			copy(popup.htmlscrollbars, scrollbars);
+
+		  ,type == 'iframe',
+			set(popup.type, iframe);
+			copy(popup.iframeurl, content);
+
+		  ,type == 'image',
+		 	set(popup,
+		 		bgcolor=0xFFFFFF,
+		 		bgalpha=1,
+		 	);
+			addlayer("popup_image", img);
+			set(img,
+				url=get(content),
+				align=center,
+				width=-20, height=-20,
+				parent=get(popup.name),
+				onloaded='popup_imageloaded()'
+			);
+		);
+
+		tween(global.plugin[pp_blur].range, 40.0);
+		delayedcall(0.2, tween(global.layer[popup].alpha, 1.0); );
+
+		// events when the popup should get closed automatically
+		set(global.events[popup].onremovepano, popup_close() );
+	]]></action>	
+	
+	<action name="popup_close">
+		set(global.plugin[popup_bg].enabled, false);
+		set(global.events[popup].name, null);
+		tween(global.plugin[pp_blur].range, 0.0);
+		tween(global.layer[popup_bg].bgalpha, 0.0, 0.25);
+		tween(global.layer[popup].alpha, 0.0, 0.25, default,
+			removelayer('popup_bg', true);
+			scope(private:POPUP, delete(popup); );
+		);
+	</action>
+
+	<action name="popup_imageloaded" scope="private:POPUP">
+		calc(imgw, caller.imagewidth + 20);
+		calc(imgh, caller.imageheight + 20);
+		calc(maxw, global.stagewidth*0.9);
+		calc(maxh, global.stageheight*0.8);
+		if(imgw GT maxw,
+			calc(imgh, round(imgh * maxw / imgw));
+			copy(imgw, maxw);
+		);
+		if(imgh GT maxh,
+			calc(imgw, round(imgw * maxh / imgh));
+			copy(imgh, maxh);
+		);
+
+		set(global.layer[get(caller.parent)], width=get(imgw), height=get(imgh) );
+	</action>
+  
+  <plugin name="soundinterface"
+	        url="%VIEWER%/plugins/soundinterface.js"
+	        rootpath=""
+	        preload="true"
+	        keep="true"
+	        />
+  
+  <events onremovepano="stopallsounds();" />
+
+	<action name="playPauseAudio">
+		if(sound[%1],
+			togglesound(%1);
+			switch(hotspot[get(name)].url, "skin/mute.png", "skin/voice.png");
+		  ,
+			playsound(%1, %2);
+		);
+	</action>
+
+	<action name="playPauseSpatialAudio">
+		if(sound[%1],
+			togglesound(%1);
+			switch(hotspot[get(name)].url, "skin/mute.png", "skin/voice.png");
+		  ,
+			playsound_at_hotspot(%1, %2, get(name), false, 1.0);
+		);
+	</action>
+
+  <action name="autoRotateToggle">
+		switch(autorotate.enabled);
+		switch(layer[get(name)].url, "skin/stop-3d-rotate.png", "skin/3d-rotate.png");
+	</action>
+
+	<action name="autoRotateDirection">
+		if(autorotate.enabled == "true",
+			switch(autorotate.speed, "-4.0", "4.0");
+			switch(layer[get(name)].url, "skin/right-rotate.png", "skin/left-rotate.png");
+		);
+	</action>
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+  
+  <style name="custom_hotspotstyle"
+	       zoom="true"
+		   scale="1.0"
+	       onover.addevent="tween(scale,1.1);"
+	       onout.addevent="tween(scale,1.0);"
+		   />
+
+	<style name="image_hotspotstyle"
+		   url="skin/image.png"
+		   />
+
+	<style name="video_hotspotstyle"
+		   url="skin/video.png"
+		   />	
+
+	<style name="site_hotspotstyle"
+		   url="skin/information.png"
+		   scale="0.80"
+		   />
+  
+	<layer name="skin_btn" type="text" html="Setup Conference" css="margin: 0;font-size: 14px;color:#000000;background-color: rgba(212, 213, 215, 0.70);border-radius: 4px;padding: 6px 6px;text-align: center;border: 1px solid rgb(105, 105, 105);" bgcolor2="0xd4d5d7" bgalpha="0" align="lefttop" x="10" y="10" scale="1" width="170" height="40" keep="true"
+			onclick="
+					plugin[conferencing_plugin].setup_conference();
+			"
+	/>
+  
+  
+	<layer name="rotate_start_stop_btn" type="image" url="skin/3d-rotate.png" align="lefttop" x="10" y="50" keep="true" scale="0.55"
+			onclick="autoRotateToggle();"
+			onloaded="trace('layer loaded');"
+	/>
+
+	<layer name="rotate_direction_btn" type="image" url="skin/left-rotate.png" align="lefttop" x="50" y="50" keep="true" scale="0.56"
+			onclick="autoRotateDirection();"
+	/>
+  
+  	<action name="set_css_id" type="Javascript">
+  		caller.sprite.id = args[1];
+	</action>
+
+	
+	<scene name="scene_7-UoASign3-min" title="7-UoASign3-min" onstart="" thumburl="panos/7-UoASign3-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/7-UoASign3-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/7-UoASign3-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+    
+    	<hotspot name="uoaSignVideo" style="custom_hotspotstyle | video_hotspotstyle" ath="-20.000" atv="-15.000" zorder="2"
+			html="Youtube"
+			onclick="popup('iframe', 'https://www.youtube.com/embed/Di0mvQAX8dE?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);"/>
+		<hotspot name="uoaSignVideoLine" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="-20.5" atv="-15.000" />
+    		<point ath="-20.5" atv="-5.0" />
+    		<point ath="-20.5" atv="-15" />
+		</hotspot>
+		<hotspot name="uoaSignSite" style="custom_hotspotstyle | site_hotspotstyle" ath="0.000" atv="-2.000"
+			html="Web" zorder="2"
+			onclick="popup('iframe', 'https://www.google.com', 800, 600, true);"
+			/>
+		<hotspot name="uoaSignSiteLine" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="0" atv="1.0" />
+    		<point ath="0" atv="4.0" />
+    		<point ath="0" atv="1.0" />
+		</hotspot>
+
+	</scene>
+
+	<scene name="scene_1-ClockTower-360-min" title="1-ClockTower-360-min" onstart="" thumburl="panos/1-ClockTower-360-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/1-ClockTower-360-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/1-ClockTower-360-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+    
+    	<hotspot name="h1" style="custom_hotspotstyle" type="image" url="skin/voice.png" ath="4.000" atv="-6.000" onclick="playPauseAudio('s1','audios/clocktower-intro.mp3');" />
+		<hotspot name="h1Line" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="3" atv="-6.000" />
+    		<point ath="3" atv="1" />
+    		<point ath="3" atv="-6" />
+		</hotspot>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-2.284" atv="2" linkedscene="scene_2-clocktowerinside-360-min" />
+		<hotspot name="clockTowerLabel"
+        	type="text"
+        	ath="13.000" atv="-47.000" edge="center"
+         	distorted="true"
+         	renderer="webgl"
+         	html="Clock Tower"
+         	css="font-family:Arial; font-size:23px; color:#000000;"
+        	padding="2"
+         	wordwrap="true"
+         	selectable="false"
+         	bgcolor="0x000000"
+         	bgalpha="0.0"
+         	bgborder="0"
+         	bgroundedge="0"
+         	mergedalpha="true"
+         	oversampling="1.0"
+         	mipmapping="false"
+        />
+		<hotspot name="clockTowerVideo" style="custom_hotspotstyle | video_hotspotstyle" ath="-20.000" atv="-5.000" zorder="2"
+			html="Youtube"
+			onclick="popup('iframe', 'https://www.youtube.com/embed/bPBXulIlnDI?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);"/>
+		<hotspot name="clockTowerVideoLine" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="-20.5" atv="-5.000" />
+    		<point ath="-20.5" atv="5.0" />
+    		<point ath="-20.5" atv="-5" />
+		</hotspot>
+
+
+	</scene>
+
+	<scene name="scene_2-ClockTowerInside-360-min" title="2-ClockTowerInside-360-min" onstart="" thumburl="panos/2-ClockTowerInside-360-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/2-ClockTowerInside-360-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/2-ClockTowerInside-360-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+    
+   		<hotspot name="h2" style="custom_hotspotstyle" type="image" url="skin/voice.png" ath="4" atv="-5" onclick="playPauseSpatialAudio('s2','audios/clocktower-desc-22.mp3');" />
+		<hotspot name="h2Line" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="3" atv="-5.000" />
+    		<point ath="3" atv="6.0" />
+    		<point ath="3" atv="-5" />
+		</hotspot>
+		<hotspot name="h3" style="custom_hotspotstyle" type="image" url="skin/voice.png" ath="53" atv="20" onclick="playPauseSpatialAudio('s3','audios/clocktower-desc-2.mp3');" />
+		<hotspot name="h3Line" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="52" atv="20.000" />
+    		<point ath="52" atv="28.0" />
+    		<point ath="52" atv="20" />
+		</hotspot>
+
+	</scene>
+	
+	<scene name="scene_5-OGGBOutside-360-min" title="5-OGGBOutside-360-min" onstart="" thumburl="panos/5-OGGBOutside-360-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/5-OGGBOutside-360-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/5-OGGBOutside-360-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+    
+   		<hotspot name="h4" style="custom_hotspotstyle" type="image" url="skin/voice.png" ath="-35.000" atv="-14.000" onclick="playPauseAudio('s1','audios/oggb-sculp-desc-1.mp3');" />
+		<hotspot name="h4Line" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="-35" atv="-14.000" />
+    		<point ath="-35" atv="-9.0" />
+    		<point ath="-35" atv="-14" />
+		</hotspot>
+		<hotspot name="h5" style="custom_hotspotstyle" type="image" url="skin/voice.png" ath="73" atv="-15" onclick="playPauseSpatialAudio('s2','audios/oggb-build-desc-1.mp3');" />
+		<hotspot name="h5Line" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="72" atv="-15.000" />
+    		<point ath="72" atv="-9.0" />
+    		<point ath="72" atv="-15" />
+		</hotspot>
+		<hotspot name="oggbSculpture" style="custom_hotspotstyle | image_hotspotstyle" ath="0.000" atv="-10.000" zorder="2" onclick="popup('image', 'skin/oggbSculp.jpg');"/>
+		<hotspot name="oggbSculptureLine" polyline="false" bordercolor="0xFFFFFF" borderwidth="2.0">
+			<point ath="0.000" atv="0.000" />
+    		<point ath="0.0" atv="0.0" />
+    		<point ath="0.0" atv="-10" />
+		</hotspot>
+		<hotspot name="oggbSection1Label"
+        	type="text"
+         	ath="-65.000" atv="-35.000" edge="center"
+         	distorted="true"
+         	renderer="webgl"
+         	html="OGGB Section 1"
+         	css="font-family:Arial; font-size:23px; color:#000000;"
+         	padding="2"
+         	wordwrap="true"
+         	selectable="false"
+         	bgcolor="0x000000"
+         	bgalpha="0.0"
+         	bgborder="0"
+         	bgroundedge="0"
+         	mergedalpha="true"
+         	oversampling="1.0"
+         	mipmapping="false"
+        />
+		<hotspot name="oggbSection2Label"
+        	type="text"
+         	ath="58.000" atv="-68.000" edge="center"
+         	distorted="true"
+         	renderer="webgl"
+         	html="OGGB Section 2"
+         	css="font-family:Arial; font-size:23px; color:#000000;"
+         	padding="2"
+         	wordwrap="true"
+         	selectable="false"
+         	bgcolor="0x000000"
+         	bgalpha="0.0"
+         	bgborder="0"
+         	bgroundedge="0"
+         	mergedalpha="true"
+         	oversampling="1.0"
+         	mipmapping="false"
+        />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="59.084" atv="-40.284" linkedscene="scene_6-oggblecturetheatre-360-min" />
+
+
+	</scene>
+
+	<scene name="scene_6-OGGBLectureTheatre-360-min" title="6-OGGBLectureTheatre-360-min" onstart="" thumburl="panos/6-OGGBLectureTheatre-360-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/6-OGGBLectureTheatre-360-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/6-OGGBLectureTheatre-360-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_10-ScienceCenterInside-360-min" title="10-ScienceCenterInside-360-min" onstart="" thumburl="panos/10-ScienceCenterInside-360-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		<layer name="move-up" type="image" url="skin/up.png" align="lefttop" x="43" y="95" keep="false" scale="0.55"
+			onloaded="set_css_id('move-up');"			
+		/>
+
+		<layer name="move-left" type="image" url="skin/left.png" align="lefttop" x="10" y="130" keep="false" scale="0.55"
+			onloaded="set_css_id('move-left');"			
+		/>
+
+		<layer name="move-box" type="image" url="skin/box.png" align="lefttop" x="45" y="132" keep="false" scale="0.45"
+			onloaded="set_css_id('move-box');"			
+		/>
+
+		<layer name="move-right" type="image" url="skin/right.png" align="lefttop" x="76" y="130" keep="false" scale="0.55"
+			onloaded="set_css_id('move-right');"			
+		/>
+
+		<layer name="move-down" type="image" url="skin/down.png" align="lefttop" x="43" y="165" keep="false" scale="0.55"
+			onloaded="set_css_id('move-down');"			
+		/>
+    
+    	<plugin name="threejs" url="three.krpanoplugin.js" keep="false" />
+    
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/10-ScienceCenterInside-360-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/10-ScienceCenterInside-360-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_3-OGHOutside-360-min" title="3-OGHOutside-360-min" onstart="" thumburl="panos/3-OGHOutside-360-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/3-OGHOutside-360-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/3-OGHOutside-360-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_4-Marae-360-min" title="4-Marae-360-min" onstart="" thumburl="panos/4-Marae-360-min.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/4-Marae-360-min.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/4-Marae-360-min.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048" />
+		</image>
+
+	</scene>
+
+
+</krpano>
