@@ -287,7 +287,7 @@
 	<action name="playPauseSpatialAudio">
 		if(sound[%1],
 			togglesound(%1);
-			switch(hotspot[get(name)].url, "skin/mute.png", "skin/voice.png");
+			switch(hotspot[get(name)].url, "skin/mute.png", "skin/spatial-voice.png");
 		  ,
 			playsound_at_hotspot(%1, %2, get(name), false, 1.0);
 		);
